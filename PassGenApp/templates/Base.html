@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PasswordGenerator</title>
+</head>
+<body>
+    {% block body %}
+    <form>
+        <h1>Select Your Password Length</h1>
+        <select name="length" id="">
+            <option value="8">8</option>
+            <option value="10">10</option>
+            <option value="12">12</option>
+        </select>
+        <input type="submit"  id="">
+        {% if request.GET %}
+            {{ pas }}
+        {% endif %}
+        
+        
+    </form>     
+    {% endblock body %}
+</body>
+</html>
