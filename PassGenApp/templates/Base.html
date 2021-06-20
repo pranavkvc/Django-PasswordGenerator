@@ -1,13 +1,19 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PasswordGenerator</title>
+    <link rel="stylesheet" href="{% static 'generator.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 </head>
 <body>
     {% block body %}
+    <div class="w3-container w3-display-middle">
     <h1>Password Generator!</h1>
     <form>
         <label for="length">Set Passowrd Length:</label>
@@ -21,13 +27,21 @@
         <input type="checkbox" name="n" id=""> Numeric <br>
         <input type="checkbox" name="s" id=""> Special Characters <br>
         
-        <input type="submit"  id="">
-        {% if request.GET %}
-            <p>{{ pas }}</p>
-        {% endif %}
+        <input type="submit" id="button" class='w3-button w3-round-xlarge w3-green'>
+        
         
         
     </form>     
+    </div>
+
+    {% if not request.GET or request.POST %}
+            <p><i class="w3-display-topmiddle w3-padding 24 lo fa fa-spinner w3-spin" style="font-size:64px"></i></p>
+    {% endif %}
+    {% if request.GET %}
+            <h1 class="w3-display-topmiddle w3-padding 24 pass w3-animate-fadein">{{ pas }}</h1>
+    
+    {% endif %}
     {% endblock body %}
+    
 </body>
 </html>
