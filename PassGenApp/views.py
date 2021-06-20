@@ -14,7 +14,14 @@ class PasswordView(View):
         
         if request.method=='GET':
            
-            getlength = int(request.GET.get('length'))
+            getlength = int(request.GET.get('length','0'))
+            if request.GET.get('n'):
+                a.extend('1234567890')
+            if request.GET.get('s'):
+                a.extend('!@#$%^&*()') 
+            if request.GET.get('u'):
+                a.extend('QWERTYUIOPASDFGHJKLZXCVBNM')
+
             setpassword = ''.join(random.choice(a) for i in range(getlength))
             
 

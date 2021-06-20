@@ -8,16 +8,22 @@
 </head>
 <body>
     {% block body %}
+    <h1>Password Generator!</h1>
     <form>
-        <h1>Select Your Password Length</h1>
+        <label for="length">Set Passowrd Length:</label>
         <select name="length" id="">
             <option value="8">8</option>
             <option value="10">10</option>
             <option value="12">12</option>
         </select>
+        <h4>Password should contain</h4> <br>
+        <input type="checkbox" name="u" id=""> UpperCase <br>
+        <input type="checkbox" name="n" id=""> Numeric <br>
+        <input type="checkbox" name="s" id=""> Special Characters <br>
+        
         <input type="submit"  id="">
         {% if request.GET %}
-            {{ pas }}
+            <p>{{ pas }}</p>
         {% endif %}
         
         
